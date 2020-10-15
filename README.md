@@ -1,6 +1,6 @@
 # manabu-management
 
-**Sistema de gerenciamento financeiro de projetos
+*Sistema de gerenciamento financeiro de projetos*
 
 1) comando para instalar as dependências do back-end:
 
