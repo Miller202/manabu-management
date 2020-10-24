@@ -14,4 +14,9 @@ class Item extends Model
         return $this->belongsTo(Categoria::class);
     }
 
+    public function notas()
+    {
+        return $this->hasMany(Nota::class);
+    }
+
 }
