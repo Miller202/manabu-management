@@ -41,12 +41,12 @@
                         <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                             <li><a href="{{route('login')}}" class="nav-link">Login</a></li>
                             <li><a href="{{route('register')}}" class="nav-link">Register</a></li>
+                            <li><a href="{{route('budgets')}}" class="nav-link">Orçamentos</a></li>
 {{--                            <li class="has-children">--}}
-{{--                                <a class="nav-link">Denúncias</a>--}}
+{{--                                <a class="nav-link">Orçamentos</a>--}}
 {{--                                <ul class="dropdown">--}}
-{{--                                    <li><a href="<?= url('createReport') ?>" class="nav-link">Cadastrar</a></li>--}}
-{{--                                    <li><a href="<?= url('listReports') ?>" class="nav-link">Listar</a></li>--}}
-{{--                                    <li><a href="<?= url('reports') ?>" class="nav-link">Mapa</a></li>--}}
+{{--                                    <li><a href="{{route('createBudget')}}" class="nav-link">Criar</a></li>--}}
+{{--                                    <li><a href="{{route('budgets')}}" class="nav-link">Listar</a></li>--}}
 {{--                                </ul>--}}
 {{--                            </li>--}}
                         </ul>
