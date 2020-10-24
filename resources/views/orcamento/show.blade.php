@@ -1,6 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
+    <div id="createBudget" class="box-alert">
+        <div class="web-div-box mt-5">
+            <div class="box-div-info    ">
+                <p><img src="img/icone-pagamento.png"> Cadastrar novo orçamento.</p>
+                <hr>
+                <div class="form-group text-right">
+                    <p class="text-left"><img src="img/icone-novo-orcamento.png"> Insira o nome do novo orçamento:</p>
+                    <input type="text" id="budgetName" name="budgetName" class="form-control" placeholder="Nome do orçamento">
+                    <button type="button" class="btn btn-style-2 mt-3" onclick="hideCreateBudget()">Cancelar</button>
+                    <button type="button" class="btn btn-style-1 mt-3">Cadastrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="row mt-5">
             <div class="col-xl-3 mb-5">
@@ -23,6 +38,10 @@
                             <p><img src="img/icone-texto.png"> Texto:</p>
                             <input type="text" class="form-control" id="text" name="text" title="Texto" onkeyup="tableFilter()" placeholder="Insira um texto" required>
                         </div>
+
+                        <hr>
+
+                        <p class="div-box-action" onclick="showCreateBudget()"><img src="img/icone-novo-orcamento.png"> Criar novo orçamento</p>
                     </div>
                 </div>
             </div>
@@ -31,11 +50,11 @@
                     <div class="box-div-info">
                         <div class="table-title">
                             <img src="img/icone-pagamento.png"> Orçamentos
-                            <div class="dropleft div-box-span-icon">
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#"><img src="img/icone-planilha.png"> Exportar lista de pagamentos</a>
-                                </div>
-                            </div>
+{{--                            <div class="dropleft div-box-span-icon">--}}
+{{--                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">--}}
+{{--                                    <a class="dropdown-item" href="#"><img src="img/icone-planilha.png"> Exportar lista de pagamentos</a>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
                         </div>
                         <hr style="margin-bottom: 0">
                         <div class="box-div-info-overflow-x">
@@ -55,7 +74,7 @@
                                         <td>R$ 9.500,00</td>
                                         <td>R$ 5.200,00</td>
                                         <td>Elaboração</td>
-                                        <td>botões</td>
+                                        <td class="table-td-actions"><span class="icon-list" title="Listar"></span>&ensp;<span class="icon-edit" title="Editar"></span>&ensp;<span class="icon-trash" title="Apagar"></span></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -78,28 +97,28 @@
         });
 
         function openPage(data) {
-            window.open("http://www.smf.maceio.al.gov.br:8090/e-agata/servlet/hwmemitedamqrcode?"+ data, '_blank');
+            // window.open('localhost:8000/budgets', '_blank');
         }
 
         function exportData() {
             $("#loader-div").show();
             let data = {'exportType': 1};
+        }
 
-            {{--$.ajax({--}}
-            {{--    type:'POST',--}}
-            {{--    url: "<?= $router->route("web.exportData"); ?>",--}}
-            {{--    data: data,--}}
-            {{--    dataType : 'html',--}}
-            {{--    success:function(returnData){--}}
-            {{--        $("#loader-div").hide();--}}
-            {{--        console.log(returnData);--}}
-            {{--    },--}}
-            {{--    error: function(returnData){--}}
-            {{--        $("#loader-div").hide();--}}
-            {{--        console.log("error");--}}
-            {{--        console.log(returnData);--}}
-            {{--    }--}}
-            {{--});--}}
+        function createNewBudget() {
+            let identity = $("#identityRecovery").val();
+            let data = {'identity': identity};
+            hideCreateBudget();
+
+            alert("Caso esse usuário exista, dentro de alguns minutos uma senha de recuperação Orditi será enviada para seu email.");
+        }
+
+        function hideCreateBudget() {
+            $("#createBudget").hide();
+        }
+
+        function showCreateBudget() {
+            $("#createBudget").show();
         }
 
         function tableFilter() {

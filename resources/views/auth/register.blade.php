@@ -7,7 +7,7 @@
             <div class="web-div-box">
                 <div class="box-div-info">
                     <hr>
-                    <form id="register-form" class="form-login" method="POST">
+                    <form id="register-form" class="form-login" method="POST" action="{{route('register')}}">
                         @csrf
                         <div id="modalPage1">
                             <div class="form-group">
@@ -15,10 +15,22 @@
                                 <input class="form-control" type="text" name="name" placeholder="Insira seu nome" required>
                             </div>
 
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+
                             <div class="form-group">
                                 <p><img src="img/icone-email.png"> Email:</p>
                                 <input class="form-control" type="email" name="email" placeholder="Insira seu email" required>
                             </div>
+
+                            @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
 
                             <div class="form-group">
                                 <p><img src="img/icone-telefone.png"> Telefone:</p>
@@ -36,12 +48,18 @@
 
                             <div class="form-group">
                                 <p><img src="img/icone-senha.png"> Senha:</p>
-                                <input class="form-control" type="text" name="password" placeholder="Insira sua senha" required>
+                                <input class="form-control" type="password" name="password" placeholder="Insira sua senha" required>
                             </div>
+
+                            @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
 
                             <div class="form-group">
                                 <p><img src="img/icone-senha.png"> Confirmar senha:</p>
-                                <input class="form-control" type="password" name="confirmPassword" placeholder="Insira novamente sua senha" required>
+                                <input class="form-control" type="password" name="password_confirmation" placeholder="Insira novamente sua senha" required>
                             </div>
 
                             <button type="button" class="btn btn-style-2" onclick="lastPage(1)">Anterior</button>
@@ -64,37 +82,6 @@
 
 @section('scripts')
 <script>
-    $(document).ready(function () {
-        $('#register-form').on('submit',(function(e) {
-            e.preventDefault();
-            $("#loader-div").show();
-            let data = new FormData(this);
-
-            $.ajax({
-                type:'POST',
-                url: "{{route('register')}}",
-                data: data,
-                cache:false,
-                contentType: false,
-                processData: false,
-                success:function(returnData){
-                    $("#loader-div").hide();
-                    if(returnData == 1){
-                        alert('Cadastro realizado com sucesso.');
-                    }else{
-                        alert('Houve um erro ao tentar se cadastrar.');
-                    }
-                    console.log(returnData);
-                },
-                error: function(returnData){
-                    $("#loader-div").hide();
-                    console.log("error");
-                    console.log(returnData);
-                }
-            });
-        }));
-    });
-
     function nextPage() {
         $("#modalPage1").animate({opacity: 0}, "fast", function(){
             document.getElementById('modalPage1').style.display = 'none';

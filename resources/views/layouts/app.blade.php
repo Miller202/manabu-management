@@ -39,9 +39,23 @@
                 <div class="col-12 col-md-10 d-none d-xl-block">
                     <nav class="site-navigation position-relative text-right" role="navigation">
                         <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                            @guest
                             <li><a href="{{route('login')}}" class="nav-link">Login</a></li>
                             <li><a href="{{route('register')}}" class="nav-link">Register</a></li>
-                            <li><a href="{{route('budgets')}}" class="nav-link">Orçamentos</a></li>
+                            @endguest
+                            @auth
+                                <li><a href="{{route('budgets')}}" class="nav-link">Orçamentos</a></li>
+                                    <a class="nav-link" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        Sair
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                            @endauth
+
 {{--                            <li class="has-children">--}}
 {{--                                <a class="nav-link">Orçamentos</a>--}}
 {{--                                <ul class="dropdown">--}}
@@ -68,11 +82,12 @@
     @yield('content')
 </div>
 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/aos.js"></script>
 <script src="js/main.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js" crossorigin="anonymous"></script>
 @yield('scripts')
 <script>
     $(document).ready(function () {

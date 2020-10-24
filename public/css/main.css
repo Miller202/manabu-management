@@ -38,6 +38,10 @@ body {
     .div-edit-report {
         padding-top: 15px !important;
     }
+
+    .box-alert{
+        padding: 2% 30% 20% 30%;
+    }
 }
 
 a {
@@ -72,13 +76,18 @@ h3{
 }
 
 @media (min-width: 1000px){
-    .themeContent{
-        position: relative; top: 70px;
+    .box-alert{
+        padding: 2% 30% 20% 30% !important;
     }
 }
 
 header{
     position: fixed !important;
+}
+
+.themeContent{
+    position: relative;
+    top: 50px;
 }
 
 .style-input{
@@ -332,7 +341,7 @@ tbody>tr:hover{
 
 .div-box-span-icon{
     position: absolute;
-    right: 40px;
+    left: 350px;
     font-size: 22px;
     cursor: pointer;
 }
@@ -400,4 +409,34 @@ form > .btn-style-1{
 .div-date-time {
     text-transform: capitalize;
     font-size: 12px;
+}
+
+.table-td-actions{
+    font-size: 18px;
+}
+
+span:hover {
+    color: #015e8e;
+}
+
+.div-box-action{
+    cursor: pointer;
+}
+
+.div-box-action:hover {
+    color: #015e8e;
+}
+
+.box-alert{
+    padding: 2% 5% 5% 5%;
+}
+
+.box-alert{
+    top: 0;
+    position: fixed;
+    width: 100%;
+    height: 130vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    display: none;
 }
