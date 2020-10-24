@@ -1,0 +1,403 @@
+body {
+    line-height: 1.7;
+    color: gray;
+    font-weight: 400;
+    font-size: 1rem;
+    overflow-x: hidden;
+    /*overflow-y: hidden;*/
+    background: url(../img/body-bg.png) no-repeat center;
+    height: 100vh;
+
+    font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    color: black;
+}
+
+@media (max-width: 1000px){
+    .img-home{
+        display: none;
+    }
+
+    .mobile-top-login{
+        top: 80px;
+        position: relative;
+    }
+
+    .mobile-top-pages{
+        top: 40px;
+        position: relative;
+    }
+
+    #map{
+        top: 68.8px;
+    }
+
+    .create-report-btn{
+        width: 100% !important;
+    }
+
+    .div-edit-report {
+        padding-top: 15px !important;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #142954;
+}
+
+.text-description{
+    font-size: 17px;
+}
+
+.text-wellcome{
+    font-weight: bold;
+    color: #142954;
+}
+
+#map{
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    overflow-y: hidden;
+}
+
+h3{
+    color: #142954;
+    font-weight: bold;
+}
+
+@media (min-width: 1000px){
+    .themeContent{
+        position: relative; top: 70px;
+    }
+}
+
+header{
+    position: fixed !important;
+}
+
+.style-input{
+    width: 100%;
+    margin-top: 30px;
+    border: none;
+    border-bottom: 1px solid #142954;
+    background-color: transparent;
+}
+
+.style-input-no-margin-top{
+    width: 100%;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 1px solid #142954;
+    background-color: transparent;
+}
+
+/*.login-input:focus:required:invalid{*/
+/*  border: none !important;*/
+/*  border-bottom: 1px solid #142954 !important;*/
+/*}*/
+
+.login-image{
+    width: 30%;
+}
+
+.login-btn{
+    width: 100%;
+    margin-top: 30px;
+    border: none;
+    padding: 3px;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    background-color: #142954;
+}
+
+.login-create-account{
+    font-size: 12px;
+    margin-top: 20px;
+    position: relative;
+    text-align: left;
+    color: #142954;
+    cursor: pointer;
+}
+
+.loader-div{
+    position: fixed;
+    width: 100%;
+    height: 150vh;
+    justify-content: center;
+    display: flex;
+    left: 0;
+    top: 0;
+    padding-top: 250px;
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.div-edit-report{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    left: 0;
+    top: 0;
+    padding-top: 120px;
+    z-index: 9999;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.loader-spin{
+    border: 10px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 10px solid #142954;
+    width: 70px;
+    height: 70px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.profile-img{
+    width: 80%;
+}
+
+.web-div-box{
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.box-div-info{
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 0.15);
+    padding: 15px;
+}
+
+.box-div-info-overflow-x{
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.profile-div-data{
+    width: 100%;
+    background: #f6f8fa;
+    margin-top: 10px;
+    padding: 3px 3px 3px 20px;
+    border-radius: 5px;
+}
+
+.profile-user-name{
+    font-weight: bold;
+}
+
+.profile-div-team{
+    width: 100%;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.profile-div-team-users{
+    width: 80px;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.profile-div-team-users:hover{
+    cursor: pointer;
+}
+
+.profile-div-team-img{
+    width: 100%;
+}
+
+.profile-div-team-people{
+    font-size: 12px;
+}
+
+.profile-div-info-actions:hover{
+    color: #142954;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.profile-div-action-text{
+    font-weight: bold;
+}
+
+.fade-in{
+    animation: fadeIn ease 2s;
+    -webkit-animation: fadeIn ease 2s;
+    -moz-animation: fadeIn ease 2s;
+    -o-animation: fadeIn ease 2s;
+    -ms-animation: fadeIn ease 2s;
+}
+@keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+.create-report-top-div-box{
+    text-align: left;
+    color: white;
+    padding: 10px 10px 10px 20px;
+    border-radius: 10px 10px 0 0;
+    font-weight: bold;
+    width: 100%;
+    background-color: #142954;
+    box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 0.15);
+}
+
+.create-report-bottom-div-box{
+    margin-top: 20px;
+    text-align: right;
+    width: 100%;
+}
+
+.create-report-btn{
+    width: 20%;
+    border: none;
+    padding: 3px;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    background-color: #142954;
+}
+
+.create-report-form{
+    background: white;
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+    box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 0.15);
+    padding: 0 15px 15px 15px;
+}
+
+.select-opt-0{
+    display: none;
+}
+
+.list-report-header-text{
+    font-weight: bold;
+    color: black;
+    margin-bottom: 15px;
+}
+
+.input-filter{
+    width: 90%;
+}
+
+.list-report-hr{
+    margin: 0;
+}
+
+tbody>tr:hover{
+    cursor: pointer;
+    color: #142954;
+}
+
+.report-info-span{
+    background-color: gray !important;
+}
+
+.div-box-span-icon{
+    position: absolute;
+    right: 40px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.div-box-span-icon:hover{
+    color: #142954;
+}
+
+.btn-style-1 {
+    font-family: "Dosis", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 1px;
+    display: inline-block;
+    border-radius: 3px;
+    transition: 0.5s;
+    color: #fff;
+    background: #142954;
+    text-transform: uppercase;
+}
+
+.btn-style-1:hover {
+    background: #142954;
+    color: #fff;
+}
+
+form > .btn-style-1{
+    width: 100%;
+}
+
+.btn-style-2{
+    font-family: "Dosis", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 1px;
+    display: inline-block;
+    border-radius: 3px;
+    transition: 0.5s;
+    text-transform: uppercase;
+    background: #fff;
+    color: #142954;
+    border: 1px solid #142954;
+}
+
+.btn-style-2:hover {
+    background: #142954;
+    color: #fff;
+}
+
+.form-control:focus {
+    border-color: #142954;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.filter-select {
+    margin-bottom: 10px !important;
+    font-size: 14px;
+}
+
+.box-div-info > .text-center {
+    font-weight: bold;
+}
+
+.div-date-time {
+    text-transform: capitalize;
+    font-size: 12px;
+}
