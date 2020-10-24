@@ -21,6 +21,11 @@ class CreateCategoriasTable extends Migration
             $table->double('valor_estimado');
             $table->double('valor_realizado');
             $table->timestamps();
+
+            $table->foreign('orcamento_id')
+                ->references('id')
+                ->on('orcamentos')
+                ->onDelete('cascade');
         });
     }
 

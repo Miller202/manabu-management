@@ -21,6 +21,11 @@ class CreateOrcamentosTable extends Migration
             $table->double('valor_estimado');
             $table->double('valor_realizado');
             $table->timestamps();
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
         });
     }
 
