@@ -2,71 +2,57 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+    <div class="row mt-3 p-4 justify-content-center mobile-top-login">
+        <div class="col-xl-6 mb-5">
+            <div class="web-div-box">
+                <div class="box-div-info">
+                    <hr>
+                    <form id="login-form" class="form-login" method="POST">
+                        <form id="form" method="POST" class="formStyleWidth" action="">
+                            <div id="modalPage1">
+                                <div class="form-group">
+                                    <p><img src="img/icone-homem.png"> Nome:</p>
+                                    <input class="form-control" type="text" name="registration" placeholder="" required>
+                                </div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+                                <div class="form-group">
+                                    <p><img src="img/icone-email.png"> Email:</p>
+                                    <input class="form-control" type="number" name="password" placeholder="" required>
+                                </div>
 
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                                <div class="form-group">
+                                    <p><img src="img/icone-telefone.png"> Telefone:</p>
+                                    <input class="form-control" type="number" name="password" placeholder="" required>
+                                </div>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <button type="button" class="btn btn-style-1" onclick="nextPage()">Próximo</button>
                             </div>
-                        </div>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <div id="modalPage2" style="display: none">
+                                <div class="form-group">
+                                    <p><img src="img/icone-nome.png"> Usuário:</p>
+                                    <input class="form-control" type="number" name="password" placeholder="" required>
+                                </div>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <div class="form-group">
+                                    <p><img src="img/icone-senha.png"> Senha:</p>
+                                    <input class="form-control" type="number" name="password" placeholder="" required>
+                                </div>
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <div class="form-group">
+                                    <p><img src="img/icone-senha.png"> Confirmar senha:</p>
+                                    <input class="form-control" type="number" name="password" placeholder="" required>
+                                </div>
+
+                                <button type="button" class="btn btn-style-2" onclick="lastPage(1)">Anterior</button>
+                                <button type="submit" class="btn btn-style-1">Cadastrar</button>
                             </div>
-                        </div>
+                        </form>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                        <hr>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
+                        <div class="col-xl-12 text-center mb-2">
+                            <p class="div-date-time"><?= utf8_encode(strftime('%A, %d de %B de %Y', strtotime('today'))) ?></p>
                         </div>
                     </form>
                 </div>
@@ -74,4 +60,27 @@
         </div>
     </div>
 </div>
+
+@endsection
+
+@section('scripts')
+<script>
+    function nextPage() {
+        $("#modalPage1").animate({opacity: 0}, "fast", function(){
+            document.getElementById('modalPage1').style.display = 'none';
+            $("#modalPage2").animate({opacity: 1}, "fast", function(){
+                document.getElementById('modalPage2').style.display = 'block';
+            });
+        });
+    }
+
+    function lastPage() {
+        $("#modalPage2").animate({opacity: 0}, "fast", function(){
+            document.getElementById('modalPage2').style.display = 'none';
+            $("#modalPage1").animate({opacity: 1}, "fast", function(){
+                document.getElementById('modalPage1').style.display = 'block';
+            });
+        });
+    }
+</script>
 @endsection
